@@ -1,12 +1,13 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import { config } from "dotenv";
+config({ quiet: true });
 import helmet from 'helmet';
 import { connectDB } from '../config/db.js';
 
 // import employeeRoutes from './routes/employeeRoutes.js';
 
-dotenv.config({quiet: true});
+config({ quiet: true });
 
 const app = express();
 app.use(helmet());

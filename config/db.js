@@ -1,8 +1,8 @@
 import sql from 'mssql';
-import dotenv from 'dotenv';
-dotenv.config({quiet: true});
+import { config } from "dotenv";
+config({ quiet: true });
 
-const config = {
+const configs = {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     server: process.env.DB_SERVER,
@@ -15,9 +15,9 @@ const config = {
 
 export const connectDB = async () => {
     try {
-       const connectionInstance = await sql.connect(config);
-        console.log('Connected to SQL Server database successfully');
-        return connectionInstance;  
+        const connectionInstance = await sql.connect(configs);
+        console.log('Connected to SQL Server database successfully.');
+        return connectionInstance;
     }
     catch (error) {
         console.error('Database connection failed:', error);
